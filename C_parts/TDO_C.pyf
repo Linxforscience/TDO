@@ -1,0 +1,16 @@
+! File TDO_C.pyf
+python module TDO_C
+interface
+  subroutine foo(n,a,V,expon,calcdata)
+    intent(c) foo                 ! foo is a C function
+    intent(c)                     ! all foo arguments are 
+                                  ! considered as C based
+    integer intent(hide), depend(V) :: n=len(V)
+    double precision intent(in)     :: a                                           
+    double precision intent(in)     :: V(n)        
+    double complex intent(in)       :: expon(n)        
+    double complex intent(out)      :: calcdata(n)       
+                                               
+  end subroutine foo
+end interface
+end python module TDO_C
